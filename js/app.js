@@ -1,4 +1,30 @@
+// Instanciate the classes
 
-
+const cryptoAPI = new CryptoAPI();
 const ui = new UI();
-const cryptoAPI = new cryptoAPI();
+// Create the variables
+
+const form = document.getElementById('form');
+
+
+
+
+// Add event listener
+form.addEventListener('submit', (e) => {
+     e.preventDefault();
+
+     // read currency
+     const currencySelect = document.getElementById('currency').value;
+     // read cryptocurrency
+     const cryptoCurrencySelect = document.getElementById('cryptocurrency').value;
+
+
+     // Validate that the selects have something
+     if(currencySelect === '' || cryptoCurrencySelect === '') {
+          // display an error
+          ui.printMessage('All the fields are mandatory', 'deep-orange darken-4 card-panel');
+     } else {
+         console.log('succes');
+     }
+
+}) 
