@@ -1,17 +1,34 @@
 class CryptoAPI {
 
-    //get all the cryptocurrencies
-    async getCryptoCurrenciesList() {
-        const url = await fetch('https://api.coinmarketcap.com/v2/ticker/');
-            //we use await to stop or to bloc until the url have all charge
+      // Query the rest api with a currency and a cryptocurrency
 
-            //return as json
-            const cryptoCurrencies = await url.json();
+      async queryAPI(currency, cryptocurrency) {
+        // Query the URL
+        const url = await fetch(`https://api.coinmarketcap.com/v1/ticker/${cryptocurrency}/?convert=${currency}`);
 
-            //return the object
-            return {
-                cryptoCurrencies
-            }
+        // Return as json
+        const result = await url.json();
 
-    }
+        // Return the object
+        return {
+             result
+        }
+
+   }
+
+
+
+     // Get all the cryptocurrencies
+     async getCryptoCurrenciesList() {
+        const url = await fetch('https://api.coinmarketcap.com/v1/ticker/');
+
+        // Return this as a json
+        const cryptoCurrencies = await url.json();
+
+        // return the object
+        return {
+             cryptoCurrencies
+        }
+   }
 }
+

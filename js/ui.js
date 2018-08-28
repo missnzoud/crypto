@@ -45,4 +45,10 @@ class UI {
         }, 3000); 
    }
 
+
+   //prints the result of the evaluation
+   displayResult(result) {
+       console.log(result);
+   }
+
 }
